@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Demo Hospital Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet">
+  <link rel="icon" href="images/icon.svg">
+</head>
+
+<body>
+  <header class="sticky-navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reservation">Reservation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+  <div class="landing">
+    <p class="heading"><span class="highlight">Akami</span> Hospital</p>
+    <p class="subheading">Your Health, Our Priority <br> The Best Hospital in Town!
+    </p>
+  </div>
+  <section id="services">
+    <div class="services-child ">
+      <img src="images/hospital-svgrepo-com.svg" alt="Icon of hospital building" class="icons">
+      <p>Specialized Departments: Dedicated departments for various medical specialties such as cardiology, neurology,
+        orthopedics, oncology, pediatrics, and more.</p>
+    </div>
+    <div class="services-child">
+      <img src="images/doctor-bag-svgrepo-com.svg" alt="" class="icons">
+      <p>Surgical Expertise: Advanced surgical procedures performed by skilled surgeons using the latest technology and
+        techniques.</p>
+    </div>
+    <div class="services-child">
+      <img src="images/data-quality-svgrepo-com.svg" alt="" class="icons">
+      <p class="services-text">24/7 Emergency Care: Immediate medical attention for critical conditions, accidents, and
+        emergencies.</p>
+  </section>
+  <section id="reservation">
+    <div>
+      <h1>Reserve Your Appoitment Right Now</h1>
+      <form action="reservation.php" method="post">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name..">
+
+        <label for="email">Enter Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email..">
+
+        <label for="time">Time Slot</label>
+        <select id="time" name="time">
+          <option value="9:00 AM">9:00 AM</option>
+          <option value="10:00 AM">10:00 AM</option>
+        </select>
+
+        <label for="subject">Give details about your issue</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" value="Submit">
+
+      </form>
+    </div>
+  </section>
+  <section id="contact">
+    <p>Email: demo@aashil.site</p>
+    <p>Phone: +1 (555) 123-4567</p>
+  </section>
+  <script src="main.js"></script>
+</body>
+
+</html>

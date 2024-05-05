@@ -5,6 +5,18 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
+$servername = "localhost";
+$username = "aashil";
+$password = "aashil123#";
+$database = "hospital";
+
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -30,6 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } catch (Exception $e){
       echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+    $sql = "INSERT INTO appointments (name, email, time, subject) VALUES ('$name', '$email', '$time', '$subject')";
+    if ($conn->query($sql) === TRUE) {
+    // Display a toast message using JavaScript
+        echo '<script>alert("Appointment details added successfully");</script>';
     }
 }
 else {

@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Enable verbose debug output
         $mail->isSMTP(); // Send using SMTP
         $mail->Host = 'smtp-relay.brevo.com'; // Set the SMTP server to send through
         $mail->SMTPAuth = true; // Enable SMTP authentication
@@ -24,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port = 587;
         $mail->setFrom('aashil@aashil.site', 'Aashil Singhal');
         $mail->addAddress($email, $name);
-        $mail->Subject = "Your appoitment is confirmed at";
-        $mail->Body = "Hello, Your reservation is reserver \n";
+        $mail->Subject = "Your appointment is confirmed at $time";
+        $mail->Body = "Hello $name,\n\nThank you for choosing our services. We are pleased to confirm your appointment scheduled for $time. Your time slot has been reserved, and we are looking forward to assisting you.\n\nIf you have any questions or need to make changes to your appointment, please don't hesitate to contact us.\n\nBest regards,\nThe Akami Hospital";
         $mail->send();
         echo "appoitment is successful";
 
@@ -36,5 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 else {
   echo "Use a post method";
 }
+sleep(5);
+header("Location: index.html");
+exit;
 ?>
 
